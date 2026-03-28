@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - المدير</title>
+    <link rel="stylesheet" href="admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- شاشة تسجيل الدخول -->
+        <div id="login-screen" class="login-screen">
+            <div class="login-box">
+                <div class="login-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h2>لوحة التحكم</h2>
+                <p>الرجاء إدخال كلمة المرور</p>
+                <input type="password" id="admin-password" placeholder="كلمة المرور" class="login-input">
+                <button onclick="checkPassword()" class="login-btn">دخول</button>
+                <div id="login-error" class="error-message"></div>
+            </div>
+        </div>
+
+        <!-- محتوى لوحة التحكم -->
+        <div id="admin-dashboard" style="display: none;">
+            <nav class="admin-nav">
+                <div class="admin-nav-container">
+                    <div class="admin-logo">
+                        <i class="fas fa-cog"></i>
+                        <span>لوحة التحكم</span>
+                    </div>
+                    <div class="admin-nav-buttons">
+                        <button onclick="logout()" class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            خروج
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="admin-main">
+                <div class="admin-sidebar">
+                    <ul class="admin-menu">
+                        <li class="menu-item active" data-section="whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>أعمال واتساب</span>
+                        </li>
+                        <li class="menu-item" data-section="instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span>أعمال إنستغرام</span>
+                        </li>
+                        <li class="menu-item" data-section="telegram">
+                            <i class="fab fa-telegram"></i>
+                            <span>أعمال تيليجرام</span>
+                        </li>
+                        <li class="menu-item" data-section="apps">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>أعمال التطبيقات</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="admin-content">
+                    <div class="content-header">
+                        <h2 id="section-title">أعمال واتساب</h2>
+                        <button onclick="openAddModal()" class="add-btn">
+                            <i class="fas fa-plus"></i>
+                            إضافة عمل جديد
+                        </button>
+                    </div>
+
+                    <div id="works-list" class="works-list">
+                        <!-- سيتم عرض الأعمال هنا -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة إضافة/تعديل عمل -->
+    <div id="work-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">إضافة عمل جديد</h3>
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="work-id">
+                <input type="hidden" id="work-section">
+                <div class="form-group">
+                    <label>رابط الصورة</label>
+                    <input type="text" id="work-image" placeholder="https://example.com/image.jpg" class="form-control">
+                    <small class="form-hint">يمكنك استخدام روابط صور من الإنترنت أو رفع صور محلية لاحقاً</small>
+                </div>
+                <div class="form-group">
+                    <label>وصف العمل</label>
+                    <textarea id="work-description" rows="4" placeholder="أدخل وصفاً تفصيلياً للعمل..." class="form-control"></textarea>
+                </div>
+                <div class="modal-buttons">
+                    <button onclick="saveWork()" class="save-btn">
+                        <i class="fas fa-save"></i>
+                        حفظ
+                    </button>
+                    <button onclick="closeModal()" class="cancel-btn">
+                        <i class="fas fa-times"></i>
+                        إلغاء
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة تأكيد الحذف -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h3>تأكيد الحذف</h3>
+                <span class="close-modal" onclick="closeDeleteModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>هل أنت متأكد من حذف هذا العمل؟</p>
+                <p class="delete-warning">لا يمكن التراجع عن هذا الإجراء!</p>
+                <div class="modal-buttons">
+                    <button onclick="confirmDelete()" class="delete-btn">
+                        <i class="fas fa-trash"></i>
+                        حذف
+                    </button>
+                    <button onclick="closeDeleteModal()" class="cancel-btn">
+                        <i class="fas fa-times"></i>
+                        إلغاء
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>

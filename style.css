@@ -1,0 +1,483 @@
+/* ========== المتغيرات العامة ========== */
+:root {
+    --primary-color: #6c5ce7;
+    --primary-dark: #5649c0;
+    --secondary-color: #00cec9;
+    --dark-bg: #0f0f1a;
+    --darker-bg: #0a0a10;
+    --card-bg: #1a1a2e;
+    --text-color: #ffffff;
+    --text-muted: #a0a0a0;
+    --whatsapp-color: #25D366;
+    --instagram-color: #E4405F;
+    --telegram-color: #26A5E4;
+    --apps-color: #6c5ce7;
+    --social-color: #fd79a8;
+    --border-radius: 16px;
+    --transition: all 0.3s ease;
+}
+
+/* ========== إعادة تعيين الأنماط ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========== شريط التنقل ========== */
+.navbar {
+    background: rgba(10, 10, 16, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ========== القسم الرئيسي ========== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    background: radial-gradient(circle at 10% 20%, rgba(108, 92, 231, 0.1) 0%, transparent 50%);
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.profile-image {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+.profile-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
+}
+
+.profile-image img:hover {
+    transform: scale(1.02);
+    border-color: var(--secondary-color);
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.bio {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+/* ========== أزرار القسم الرئيسي ========== */
+.buttons-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn i {
+    font-size: 1.2rem;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-whatsapp:hover {
+    background: var(--whatsapp-color);
+    border-color: var(--whatsapp-color);
+}
+
+.btn-instagram:hover {
+    background: var(--instagram-color);
+    border-color: var(--instagram-color);
+}
+
+.btn-telegram:hover {
+    background: var(--telegram-color);
+    border-color: var(--telegram-color);
+}
+
+.btn-apps:hover {
+    background: var(--apps-color);
+    border-color: var(--apps-color);
+}
+
+.btn-social:hover {
+    background: var(--social-color);
+    border-color: var(--social-color);
+}
+
+/* ========== قسم آخر الأعمال ========== */
+.recent-works {
+    padding: 80px 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.work-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.work-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.work-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.work-info {
+    padding: 1.5rem;
+}
+
+.work-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.work-category {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 4px 12px;
+    background: rgba(108, 92, 231, 0.2);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+}
+
+/* ========== صفحات المعارض ========== */
+.page-content {
+    padding: 120px 0 80px;
+    min-height: 100vh;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    color: var(--text-muted);
+}
+
+/* ========== شبكة المعرض ========== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.gallery-description {
+    padding: 1.5rem;
+}
+
+.gallery-description p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ========== صفحة حسابات التواصل ========== */
+.social-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.social-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    color: var(--text-color);
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-card:hover {
+    transform: translateX(5px);
+    border-color: var(--primary-color);
+}
+
+.social-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    font-size: 2rem;
+}
+
+.whatsapp-card:hover .social-icon {
+    background: var(--whatsapp-color);
+}
+
+.instagram-card:hover .social-icon {
+    background: var(--instagram-color);
+}
+
+.telegram-card:hover .social-icon {
+    background: var(--telegram-color);
+}
+
+.twitter-card:hover .social-icon {
+    background: #1DA1F2;
+}
+
+.youtube-card:hover .social-icon {
+    background: #FF0000;
+}
+
+.linkedin-card:hover .social-icon {
+    background: #0077B5;
+}
+
+.github-card:hover .social-icon {
+    background: #333;
+}
+
+.facebook-card:hover .social-icon {
+    background: #1877F2;
+}
+
+.social-info h3 {
+    margin-bottom: 0.25rem;
+}
+
+.social-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.social-username {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    margin-top: 0.5rem;
+}
+
+/* ========== تذييل الصفحة ========== */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+}
+
+/* ========== تصميم متجاوب ========== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        background: rgba(10, 10, 16, 0.98);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .buttons-grid {
+        justify-content: center;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-links-grid {
+        grid-template-columns: 1fr;
+    }
+  }
